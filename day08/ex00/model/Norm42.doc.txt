@@ -1,0 +1,4 @@
+<- Norm42 ----------------------------------------------------------------------
+Norm42 is the base object for all the objects that conform to 42 documentation
+norm.
+---------------------------------------------------------------------- Norm42 ->

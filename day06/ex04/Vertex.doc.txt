@@ -1,0 +1,14 @@
+<- Vertex ----------------------------------------------------------------------
+The Vertex class represents 3D vertexes appearing in Open_GL.
+
+An instance is contructed from the three x,y,z values:
+new Vertex( array( 'x' => 1.0, 'y' => 0.0, 'z' => 0.0 ) );
+
+'w' (for the homegenous paramater) and 'color' (for the instance of Color)
+can be add in the constructor as well :
+new Vertex( array( [x,y,z..] , 'w' => 2.0, 'color' => #instanceOfColor ) );
+Default values are respectivly 1.0 and white (0xFFFFFF)
+
+Attributes are private, you have to use getter and setter.
+No extra method is providing for this Class.
+---------------------------------------------------------------------- Vertex ->

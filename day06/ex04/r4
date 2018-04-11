@@ -1,0 +1,50 @@
+<- Camera ----------------------------------------------------------------------
+The Camera class handle a Camera object.
+The constructor except this values:
+- origin : A vertex representing the position of the camera
+- orientation : A Matrix representing the orientation of the camera
+- ratio : the quotient of the screen (width/height). Note that you can
+either send the ratio argument, or bot the width and height
+- width and height : integer reprenting the size of the screen
+- fov : the field of view in degrees
+- near : the near clipping plan (int)
+- far : the far clipping plan (int)
+
+All this values possess getter and setter for your convinience.
+Only one method is implemented :
+- watchVertex: This method need a vertex in argument, the one wich is to be projected,
+and return the corresponding new vertex in the camera coordinate.
+---------------------------------------------------------------------- Camera ->
+Camera instance constructed
+Camera( 
++ Origine: Vertex( x: 20.00, y: 20.00, z:80.00, w:1.00 )
++ tT:
+M | vtcX | vtcY | vtcZ | vtxO
+-----------------------------
+x | 1.00 | 0.00 | 0.00 | -20.00
+y | 0.00 | 1.00 | 0.00 | -20.00
+z | 0.00 | 0.00 | 1.00 | -80.00
+w | 0.00 | 0.00 | 0.00 | 1.00
++ tR:
+M | vtcX | vtcY | vtcZ | vtxO
+-----------------------------
+x | -1.00 | 0.00 | -0.00 | 0.00
+y | 0.00 | 1.00 | 0.00 | 0.00
+z | 0.00 | 0.00 | -1.00 | 0.00
+w | 0.00 | 0.00 | 0.00 | 1.00
++ tR->mult( tT ):
+M | vtcX | vtcY | vtcZ | vtxO
+-----------------------------
+x | -1.00 | 0.00 | -0.00 | 20.00
+y | 0.00 | 1.00 | 0.00 | -20.00
+z | 0.00 | 0.00 | -1.00 | 80.00
+w | 0.00 | 0.00 | 0.00 | 1.00
++ Proj:
+M | vtcX | vtcY | vtcZ | vtxO
+-----------------------------
+x | 1.30 | 0.00 | 0.00 | 0.00
+y | 0.00 | 1.73 | 0.00 | 0.00
+z | 0.00 | 0.00 | -1.02 | -2.02
+w | 0.00 | 0.00 | -1.00 | 0.00
+)
+Camera instance destructed

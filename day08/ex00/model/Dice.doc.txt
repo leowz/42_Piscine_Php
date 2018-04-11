@@ -1,0 +1,6 @@
+<- Dice ----------------------------------------------------------------------
+Dice is an utility class used as a dice tool for other classes.
+It contains only static methods that allow any class to get a random return.
+
+Return value between 1 - 6 in integer.
+---------------------------------------------------------------------- Dice ->

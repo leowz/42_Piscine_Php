@@ -1,0 +1,80 @@
+<- Vector ----------------------------------------------------------------------
+The Vector class handles space 3D Vectors.
+More than three coordinates, it has got an homogenous parameter (always=0)
+
+An instance is contructed from two Vertex orig and dest.
+It represents then the vector between thos two points.
+new Vector( array( 'dest' => #instanceOfVertex, 'orig' => #instanceOfVertex );
+Ff the vertex 'orig' is not precised, it will then be (0,0,0) as default.
+
+All Attributes are private, you may want to use getters.
+When a Vector is created, you wont be able to change its values after.
+aka-> no setters;
+
+The following method are providing for this Class:
+
+- magnitude() : give the norme of the instanced Vector.
+
+- normalize() : give the normalized Vector correspondig (a fresh copy
+if the instance was already normalized)
+
+- add( Vector $v ) : give the result of the addition between
+the current instance and $.
+
+- sub( Vector $v ) : give the result of the substraction between
+the current instance and $.
+
+- opposite() : return the opposite Vector;
+
+- scalarProduct( $k ) : return the product of the constant $k
+and the current instance;
+
+- dotProduct( Vector $v ) : return the scalar product of the current
+instance and $v.
+
+- cos( Vector $v ) : return the cosinus between the current instance and $v
+
+Vector crossProduct( Vector $rhs ) : return the cross product
+(right handed set) of the current instance and $v
+---------------------------------------------------------------------- Vector ->
+Vector( x:1.00, y:0.00, z:0.00, w:0.00 ) constructed
+Vector( x:0.00, y:1.00, z:0.00, w:0.00 ) constructed
+Vector( x:0.00, y:0.00, z:1.00, w:0.00 ) constructed
+Vector( x:1.00, y:0.00, z:0.00, w:0.00 )
+Vector( x:0.00, y:1.00, z:0.00, w:0.00 )
+Vector( x:0.00, y:0.00, z:1.00, w:0.00 )
+Vertex( x: 0.00, y: 0.00, z:0.00, w:1.00, Color( red: 255, green: 255, blue: 255 ) ) constructed
+Vector( x:-12.34, y:23.45, z:-34.56, w:0.00 ) constructed
+Vertex( x: 0.00, y: 0.00, z:0.00, w:1.00, Color( red: 255, green: 255, blue: 255 ) ) destructed
+Vector( x:-36.21, y:61.40, z:-112.90, w:0.00 ) constructed
+Magnitude is 133.51978917
+Vector( x:-0.27, y:0.46, z:-0.85, w:0.00 ) constructed
+Normalized $vtc2 is Vector( x:-0.27, y:0.46, z:-0.85, w:0.00 )
+Normalized $vtc2 magnitude is 1
+Vector( x:-48.55, y:84.85, z:-147.46, w:0.00 ) constructed
+Vector( x:-48.55, y:84.85, z:-147.46, w:0.00 ) destructed
+$vtc1 + $vtc2 is Vector( x:-48.55, y:84.85, z:-147.46, w:0.00 )
+Vector( x:23.87, y:-37.95, z:78.34, w:0.00 ) constructed
+Vector( x:23.87, y:-37.95, z:78.34, w:0.00 ) destructed
+$vtc1 - $vtc2 is Vector( x:23.87, y:-37.95, z:78.34, w:0.00 )
+Vector( x:12.34, y:-23.45, z:34.56, w:0.00 ) constructed
+Vector( x:12.34, y:-23.45, z:34.56, w:0.00 ) destructed
+opposite of $vtc1 is Vector( x:12.34, y:-23.45, z:34.56, w:0.00 )
+Vector( x:-518.28, y:984.90, z:-1451.52, w:0.00 ) constructed
+Vector( x:-518.28, y:984.90, z:-1451.52, w:0.00 ) destructed
+scalar product of $vtc1 and 42 is Vector( x:-518.28, y:984.90, z:-1451.52, w:0.00 )
+dot product of $vtc1 and $vtc2 is 5788.4854
+Vector( x:-525.52, y:-141.77, z:91.45, w:0.00 ) constructed
+Vector( x:-525.52, y:-141.77, z:91.45, w:0.00 ) destructed
+cross product of $vtc1 and $vtc2 is Vector( x:-525.52, y:-141.77, z:91.45, w:0.00 )
+Vector( x:0.00, y:0.00, z:1.00, w:0.00 ) constructed
+Vector( x:0.00, y:0.00, z:1.00, w:0.00 ) destructed
+cross product of $vtcXunit and $vtcYunit is Vector( x:0.00, y:0.00, z:1.00, w:0.00 )aka $vtcZunit
+cosinus of angle between $vtc1 and $vtc2 is 0.99548488751903
+cosinus of angle between $vtcXunit and $vtcYunit is 0
+Vector( x:-0.27, y:0.46, z:-0.85, w:0.00 ) destructed
+Vector( x:-36.21, y:61.40, z:-112.90, w:0.00 ) destructed
+Vector( x:-12.34, y:23.45, z:-34.56, w:0.00 ) destructed
+Vector( x:0.00, y:0.00, z:1.00, w:0.00 ) destructed
+Vector( x:0.00, y:1.00, z:0.00, w:0.00 ) destructed
+Vector( x:1.00, y:0.00, z:0.00, w:0.00 ) destructed
