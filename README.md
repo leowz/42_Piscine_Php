@@ -1,6 +1,16 @@
 # piscine php - @42Born2Code
 
-An implementation of standard C library. A basic project of school 42 which will be used extensively in other projects of the curriculum of 42.
+Piscine php is the starting project of branch web @42Born2Code.
+
+This project includes days of:
+* basic exercises on html/css
+* basics of php and php in OOP
+* basic usages of php on a LAMP server
+* mysql
+* some JS
+
+In the middle and the end, we also need to do 2 rushes which is basically 2 server side
+web app. The first is about an online shop, the other is about an online game.
 
 ### Contents
 * [What's in it?](#whats-in-it)
