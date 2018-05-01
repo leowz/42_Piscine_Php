@@ -43,3 +43,10 @@ div.header_container::after
 	margin-top: 20px;
 	clear: both;
 }
+
+button.btn
+{
+	text-align: center;
+	border: 3px solid lightGray;
+	border-radius: 5px;
+}

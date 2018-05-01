@@ -62,19 +62,19 @@ $credits = (array) json_decode(file_get_contents('http://api.themoviedb.org/3/mo
                 <form action="basket.php" method="post">
                     <input type="number" name="quantity" value="1">
                     <input type="hidden" name="id" value="<?php echo $product['id']; ?>">
-                    <button type="submit" class="btn btn-default">Add to Cart</button>
+                    <button type="submit" class="btn">Add to Cart</button>
                 </form>
             </div>
         </div>
     </div>
-<div class="row">
-        <h3>Cast</h3>
-
+    <h3>Cast</h3>
+	<div class="movie_collection">
         <?php
+			echo "\n";
             if (isset($credits['cast'])) {
                 foreach ($credits['cast'] as $v) {
                     $v = (array)$v;
-                    echo '<div class="col-l-2 col-m-3 col-s-4">';
+                    echo '<div class="">';
                     if (empty($v['profile_path']))
                         echo '<div class="actor" style="background-image: url(img/avatar.png)">';
                     else
@@ -90,8 +90,8 @@ $credits = (array) json_decode(file_get_contents('http://api.themoviedb.org/3/mo
             }
         ?>
     </div>
-    <div class="row">
-        <h3>Crew</h3>
+    <h3>Crew</h3>
+    <div class="movie_collection">
 
         <?php
             if (isset($credits['crew'])) {
