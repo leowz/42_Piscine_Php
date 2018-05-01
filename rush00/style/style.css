@@ -1,0 +1,45 @@
+div.movie_collection
+{
+	display: grid;
+	grid-template-columns: auto auto auto auto auto auto auto;
+	grid-gap: 20px;
+	padding: 10px;
+}
+
+div
+{
+	padding: 10px;
+}
+div.movie_box
+{
+	display: inline-grid;
+}
+
+div.movie
+{
+
+}
+
+div.filter_section
+{
+	padding: 10px;
+}
+
+div.header_index
+{
+	margin-left: 20px;
+	float : left;
+}
+
+div.header_member
+{
+	margin-right: 20px;
+	float : right;
+}
+
+div.header_container::after
+{
+	padding: 10px;
+	margin-top: 20px;
+	clear: both;
+}

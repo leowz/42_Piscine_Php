@@ -16,11 +16,11 @@ function login($data)
 		error_log(var_dump($ret));
 		if (empty($ret))
 		{
-			error_log("user not exit");
+			error_log("user not exits");
 			return ('user not exist');
 		}
 		error_log("user exist");
-		$_SESSION['login'] = 1;
+		$_SESSION['email'] = $data['email'];
 		return (null);
 	}
 	else
@@ -51,7 +51,7 @@ function register($data)
 		if ($ret)
 		{
 			error_log("create success\n");
-			$_SESSION['login'] = 1;
+			$_SESSION['email'] = $data['email'];
 			return (null);
 		}
 		error_log("create fail");

@@ -2,13 +2,14 @@
 require_once('mysqli.php');
 require_once('hash.php');
 
-function people_get($mail, $passwd)
+function people_get($email, $passwd)
 {
 	$db = database_connect();
-	$passwd = hash_passwd($passwd);
+	$passwd = $db->escape_string(hash_passwd($passwd));
 	$mail = $db->escape_string($mail);
 	$query = "SELECT * FROM peoples
 			WHERE email = '$email' AND password = '$passwd' AND isAdmin = 0";
+	error_log("query is : ".$query);
 	$ret = $db->query($query);
 	if (!$ret)
 	{
@@ -25,13 +26,13 @@ function people_create(string $email, string $passwd, string $fname,
 
 	if (filter_var($email, FILTER_VALIDATE_EMAIL) === false)
 		$err[] = 'email';
-	$passwd = hash_passwd($passwd);
+	$passwd = $db->escape_string(hash_passwd($passwd));
 	$mail = $db->escape_string($mail);
 	$fname = $db->escape_string($fname);
 	$lname = $db->escape_string($lname);
 	$address = $db->escape_string($address);
 	$query = "INSERT INTO peoples (pseudo, email, password, isAdmin, firstname, lastname, address)
-	VALUES ('pseudo', '$email', '$password', '$isAdmin', '$fname', '$lname', '$address')";
+	VALUES ('$email', '$email', '$passwd', '$isAdmin', '$fname', '$lname', '$address')";
 	$ret = $db->query($query);
 	if (!$ret)
 	{
