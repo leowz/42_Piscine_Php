@@ -6,12 +6,10 @@ function database_connect()
 	$passwd = "123456";
 	$db = "rush";
 	
-	$mysqli = new mysqli($host, $user, $passwd, $db);
-	if ($mysqli->connect_error)
+	$mysqli = mysqli_connect($host, $user, $passwd, $db);
+	if (mysqli_connect_errno($mysqli))
 	{					
-		error_log("user not exit ".$mysqli->connect_error." \n");
-		die('Connect Error (' . $mysqli->connect_errno . ') '
-				            . $mysqli->connect_error);
+		die('Connect Error (' . mysqli_connect_error(). ') ');
 	}
 	return ($mysqli);
 }

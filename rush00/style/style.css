@@ -50,3 +50,23 @@ button.btn
 	border: 3px solid lightGray;
 	border-radius: 5px;
 }
+
+table.basket
+{
+	border: 1px solid black;
+	width: 80%;
+}
+
+table, th, td {
+   border: 1px solid black;
+   border-collapse: collapse;
+}
+
+th, td {
+    padding: 15px;
+}
+
+td.right
+{
+	text-align: right;
+}

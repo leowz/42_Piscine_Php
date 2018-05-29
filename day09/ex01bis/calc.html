@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Calc</title>
+	<script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
+	<style>
+	div.container
+	{
+		width: 100vw;
+		height: 100vh;
+	}
+	div.calc
+	{
+		margin: 10% 30% 30% 30%;
+		padding: 100px;
+		background-color: lightGrey;
+	}
+	</style>
+	<script>
+	var	left;
+	var right;
+	var op;
+	var calc;
+	
+	$(document).ready(function ()
+	{
+		left = $('#left');
+		right = $('#right');
+		op = $('#op');
+		calc = $('#calc')
+		calc.submit(calculate);
+		window.setInterval(sendAlert, 30000);
+	});
+
+	function val_check(l, r)
+	{
+		if (l >= 0 && r >= 0)	
+			return true;
+		return false;
+	}
+
+	function calculate()
+	{
+		event.preventDefault();	
+		var l = Number(left.val());
+		var r = Number(right.val());
+		if (!val_check(l, r))
+		{
+			alert('Error :(');
+			return ;
+		}
+		switch (op.val())
+		{
+			case ("add"):
+				  show(l + r);
+				  break;
+			case ("min"):
+				  show(l - r);
+				  break;
+			case ("mul"):
+				  show(l * r);
+				  break;
+			case ("div"):
+				  if (r == 0)
+					  show("It’s over 9000!");
+				  else
+				  	show(l / r);
+				  break;
+			case ("mod"):
+				  if (r == 0)
+					  show("It’s over 9000!");
+				  else
+				  	show(l % r);
+				  break;
+			default:
+				  show("Error!");
+		}
+	}
+	
+	function show(res)
+	{
+		alert(res);
+		console.log(res);
+	}
+
+	function sendAlert()
+	{
+		alert('Please, use me...');
+	}
+	</script>
+</head>
+<body>
+	
+	<div class="container">
+		<div class="calc">
+			<h1>Calculator</h1>
+			<form action="" id="calc">
+				<input type="text" id="left" value="">
+				<select id="op">
+					<option value="add">+</option>
+					<option value="min">-</option>
+					<option value="mul">×</option>
+					<option value="div">÷</option>
+					<option value="mod">%</option>
+				</select>
+				<input type="text" id="right" value="">
+				<input type="submit" value="try me">
+			</form>
+		</div>
+	</div>
+</body>
+</html>

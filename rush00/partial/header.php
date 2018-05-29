@@ -11,6 +11,8 @@ include_once('head.php');
 	<?php
 	if (isset($_SESSION['email']) && !empty($_SESSION['email']))
 	{
+
+		echo '<a href="basket.php">Basket</a>';
 		echo '<a href="member.php">'.$_SESSION['email'].'</a>';
 		echo "\n";
 		echo '<a href="logout.php">'."Logout".'</a>';
