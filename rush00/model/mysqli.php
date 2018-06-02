@@ -13,4 +13,20 @@ function database_connect()
 	}
 	return ($mysqli);
 }
+
+
+function database_connect2()
+{
+$add = "localhost";
+$user = "root";
+$pass = "123456";
+
+$mysqli = mysqli_connect($add, $user, $pass);
+if (mysqli_connect_errno($mysqli))
+{
+	echo "fails to connect to db: " . mysqli_connect_error();
+	return (NULL);
+}
+return $mysqli;
+}
 ?>

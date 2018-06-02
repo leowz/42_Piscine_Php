@@ -31,4 +31,11 @@ function prod_add_toord(int $products_id, int $orders_id, int $quantity)
 		return (null);
 	}
 }
+
+function category_add_toprod(int $cat, int $prod)
+{
+	$db = database_connect();
+	$req = "INSERT INTO products_has_categories (products_id, categories_id) VALUES ('$prod', '$cat')";
+	return mysqli_query($db, $req);
+}
 ?>
