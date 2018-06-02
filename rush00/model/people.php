@@ -15,8 +15,8 @@ function people_get($email, $passwd)
 	return mysqli_fetch_assoc($ret);
 }
 
-function people_create(string $email, string $passwd, string $fname,
-		string $lname, $address = null, int $isAdmin = 0)
+function people_create(string $email, string $passwd, string $fname = null,
+		string $lname = null, $address = null, int $isAdmin = 0)
 {
 	$db = database_connect();
 
@@ -33,10 +33,10 @@ function people_create(string $email, string $passwd, string $fname,
 	if (!$ret)
 	{
 		error_log("mysqli: create fails");
-		return (null);
+		return ("create fails");
 	}
 	error_log("mysqli: create sucess");
-	return ($ret);
+	return (null);
 }
 
 function people_exist($email)

@@ -42,11 +42,12 @@ function adminRegister($data)
 			return ('user already exist');
 		}
 		error_log("register before people create");
-		$ret = people_create($data['email'], $data['passwd'], $data['fname'], $data['lname'], '', 1);
-		if ($ret)
+		$err_create = people_create($data['email'], $data['passwd'], $data['fname'], $data['lname'], '', 1);
+		if (!$err_create)
 		{
 			error_log("create success\n");
 			$_SESSION['email'] = $data['email'];
+			$_SESSION['admin'] = 1;
 			return (null);
 		}
 		error_log("create fail");

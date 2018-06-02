@@ -3,6 +3,7 @@
 	require_once('model/categories.php');
 	require_once('model/prod.php');
 	require_once('model/mysqli.php');
+	require_once('model/people.php');
 
 // delete rush if exist
 $db = database_connect2();
@@ -137,7 +138,7 @@ echo "all connect, megrating data base\n";
 
 //config
 $start = 500;
-$max = $start + 300;
+$max = $start + 50;
 
 // start megrating
 for ($i = $start; $i < $max; $i++)
@@ -195,5 +196,15 @@ for ($i = $start; $i < $max; $i++)
 		$time = microtime(TRUE);
 	}
 }
+
+//
+// create a super user
+if (people_create("root@zweng", "123456", "root", "root", "", 1))
+{
+	var_dump(mysqli_error($db));
+	echo "create admin fails, go to ip/adminRegister.php to create admin user\n";
+}
+else
+	echo "create admin succes. email: root@zweng, password: 123456 \n";
 ?>
 

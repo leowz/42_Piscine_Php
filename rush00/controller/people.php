@@ -48,9 +48,8 @@ function register($data)
 			return ('user already exist');
 		}
 		error_log("register before people create");
-		$ret = people_create($data['email'], $data['passwd'], $data['fname'],
-		$data['lname']);
-		if ($ret)
+		$err_create = people_create($data['email'], $data['passwd'], $data['fname'], $data['lname']);
+		if (!$err_create)
 		{
 			error_log("create success\n");
 			$_SESSION['email'] = $data['email'];
