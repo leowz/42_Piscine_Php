@@ -1,6 +1,6 @@
 <?php
-	session_start();
-	require_once('../model/people.php');
+session_start();
+require_once('../model/people.php');
 
 	function adminLogin(array $datas)
 	{
@@ -21,6 +21,43 @@
 		else
 			return ($err);
 	}
+
+
+function adminRegister($data)
+{
+	$err = [];
+	error_log("enter register\n");
+	if (!isset($data['email']))
+		$err[] = 'email';
+	if (!isset($data['passwd']))
+		$err[] = 'password';
+	if (!isset($data['admin']))
+		$err[] = 'admin';
+	if (empty($err))
+	{
+		$err = people_get($data['email'], $data['passwd']);
+		if ($err)
+		{
+			error_log("user already exit\n");
+			return ('user already exist');
+		}
+		error_log("register before people create");
+		$ret = people_create($data['email'], $data['passwd'], $data['fname'], $data['lname'], '', 1);
+		if ($ret)
+		{
+			error_log("create success\n");
+			$_SESSION['email'] = $data['email'];
+			return (null);
+		}
+		error_log("create fail");
+		return ("create fails");
+	}
+	else
+	{
+		error_log("register input data error");
+		return ($err);
+	}
+}
 
 if ($_POST['from'])
 {

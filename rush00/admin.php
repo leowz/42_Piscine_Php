@@ -10,7 +10,7 @@
 		exit();
 	}
 
-	$people = admin_exist($_SESSION['admin']);
+	$people = admin_exist($_SESSION['email']);
 	if ($people === null) {
 		header('Location: index.php');
 		exit();
@@ -32,8 +32,8 @@
     </div>
     <div class="row">
         <div class="col-l-6 padding">
-            <h2>Utilisateur</h2>
-            <h5>Ajouter</h5>
+            <h2>User</h2>
+            <h5>Add User:</h5>
             <form action="controller/people.php" method="POST">
                 <input type="text" name="pseudo" placeholder="pseudo">
                 <input type="password" name="password" placeholder="password">
@@ -44,9 +44,9 @@
                 <input type="hidden" name="from" value="register">
                 <input type="hidden" name="success" value="admin">
                 <input type="hidden" name="error" value="admin">
-                <button type="submit" class="btn btn-default">Ajouter</button>
+                <button type="submit" class="btn btn-default">add</button>
             </form>
-            <h5>Supprimer</h5>
+            <h5>Remove User:</h5>
             <form action="controller/people.php" method="POST">
                 <select name="pseudo">
                     <?php
@@ -58,9 +58,9 @@
                 <input type="hidden" name="from" value="unregister">
                 <input type="hidden" name="success" value="admin">
                 <input type="hidden" name="error" value="admin">
-                <button type="submit" class="btn btn-default">Supprimer</button>
+				<button type="submit" class="btn btn-default">remove</button>
             </form>
-            <h5>Modifier</h5>
+            <h5>Update User:</h5>
             <form action="controller/people.php" method="POST">
                 <select name="pseudo">
                     <?php
@@ -76,19 +76,19 @@
                 <input type="hidden" name="from" value="update">
                 <input type="hidden" name="success" value="admin">
                 <input type="hidden" name="error" value="admin">
-                <button type="submit" class="btn btn-default">Ajouter</button>
+                <button type="submit" class="btn btn-default">save</button>
             </form>
         </div>
         <div class="col-l-6 padding">
-            <h2>Catégories</h2>
-            <h5>Ajouter</h5>
+            <h2>Categories</h2>
+            <h5>Add Categories:</h5>
             <form action="controller/categories.php" method="POST">
                 <input type="text" name="name">
                 <input type="hidden" name="from" value="addcategorie">
                 <input type="hidden" name="success" value="admin">
-                <button type="submit" class="btn btn-default">Ajouter</button>
+                <button type="submit" class="btn btn-default">add</button>
             </form>
-            <h5>Supprimer</h5>
+            <h5>Delete Categories:</h5>
             <form action="controller/categories.php" method="POST">
                 <select name="name">
                     <?php
@@ -99,9 +99,9 @@
                 </select>
                 <input type="hidden" name="from" value="removecategory">
                 <input type="hidden" name="success" value="admin">
-                <button type="submit" class="btn btn-default">Supprimer</button>
+                <button type="submit" class="btn btn-default">delete</button>
             </form>
-            <h5>Modifier</h5>
+            <h5>Update Categories:</h5>
             <form action="controller/categories.php" method="POST">
                 <select name="oldname">
                     <?php
@@ -113,12 +113,12 @@
                 <input type="text" name="name" placeholder="nouveau nom">
                 <input type="hidden" name="from" value="updatecategorie">
                 <input type="hidden" name="success" value="admin">
-                <button type="submit" class="btn btn-default">Supprimer</button>
+                <button type="submit" class="btn btn-default">save</button>
             </form>
         </div>
         <div class="col-l-6 padding">
-            <h2>Films</h2>
-            <h5>Ajouter</h5>
+            <h2>Film</h2>
+            <h5>Add Film:</h5>
             <form action="controller/products.php" method="POST">
                 <input type="text" name="name" placeholder="titre du film">
                 <input type="number" name="databaseid" placeholder="ID api">
@@ -127,9 +127,9 @@
                 <input type="hidden" name="isAdult" value="0">
                 <input type="hidden" name="from" value="addproduct">
                 <input type="hidden" name="success" value="admin">
-                <button type="submit" class="btn btn-default">Ajouter</button>
+                <button type="submit" class="btn btn-default">add</button>
             </form>
-            <h5>Supprimer</h5>
+            <h5>Delete Film</h5>
             <form action="controller/products.php" method="POST">
                 <select name="name">
                     <?php
@@ -140,9 +140,9 @@
                 </select>
                 <input type="hidden" name="from" value="removeproduct">
                 <input type="hidden" name="success" value="admin">
-                <button type="submit" class="btn btn-default">Supprimer</button>
+                <button type="submit" class="btn btn-default">delete</button>
             </form>
-            <h5>Modifier</h5>
+            <h5>Update Film</h5>
             <form action="controller/products.php" method="POST">
                 <select name="id">
                     <?php
@@ -158,7 +158,7 @@
                 <input type="hidden" name="isAdult" value="0">
                 <input type="hidden" name="from" value="updateproduct">
                 <input type="hidden" name="success" value="admin">
-                <button type="submit" class="btn btn-default">Ajouter</button>
+                <button type="submit" class="btn btn-default">save</button>
             </form>
         </div>
     </div>

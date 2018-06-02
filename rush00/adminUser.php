@@ -8,7 +8,7 @@ if (!isset($_SESSION['admin']) || empty($_SESSION['admin'])) {
 	exit();
 	}
 
-$admin = admin_exist($_SESSION['admin']);
+$admin = admin_exist($_SESSION['email']);
 if ($admin === null) {
 	header('Location: index.php');
 	exit();

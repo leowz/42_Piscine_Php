@@ -13,8 +13,14 @@ include_once('head.php');
 	{
 
 		echo '<a href="basket.php">Basket</a>';
+		echo "\n";
 		echo '<a href="member.php">'.$_SESSION['email'].'</a>';
 		echo "\n";
+		if ($_SESSION['admin'] && $_SESSION['admin'] == 1)
+		{
+			echo '<a href="admin.php">Admin panel</a>';
+			echo "\n";
+		}
 		echo '<a href="logout.php">'."Logout".'</a>';
 	}
 	else

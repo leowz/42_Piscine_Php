@@ -79,6 +79,15 @@ session_start();
 				}
             ?>
         </div>
+		<div>
+			<h2>Delete Account</h2>
+				<p>
+				warning: the deletion operation is inreversable and might have serious consequences!
+				Think twice before doing this!
+				</p>
+				<button>Delete this account forever!
+				</button>
+		</div>
     </div>
 </div>
 <?php include('partial/footer.php');?>

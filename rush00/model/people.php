@@ -8,7 +8,7 @@ function people_get($email, $passwd)
 	$passwd = mysqli_real_escape_string($db, hash_passwd($passwd));
 	$mail = mysqli_real_escape_string($db, $mail);
 	$query = "SELECT * FROM peoples
-			WHERE email = '$email' AND password = '$passwd' AND isAdmin = 0";
+			WHERE email = '$email' AND password = '$passwd'";
 	$ret = mysqli_query($db, $query);
 	if (!$ret)
 		return ('people_get fails ');
@@ -32,7 +32,6 @@ function people_create(string $email, string $passwd, string $fname,
 	$ret = mysqli_query($db, $query);
 	if (!$ret)
 	{
-		error_log($db->error);
 		error_log("mysqli: create fails");
 		return (null);
 	}

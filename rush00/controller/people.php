@@ -4,7 +4,6 @@ include_once('../model/people.php');
 
 function login($data)
 {
-	error_log("enter login\n");
 	$err = [];
 	if (!isset($data['email']))
 		$err[] = 'email';
@@ -13,7 +12,8 @@ function login($data)
 	if (empty($err))
 	{
 		$ret = people_get($data['email'], $data['passwd']);
-		error_log(var_dump($ret));
+		error_log($ret['email']);
+		error_log($ret['isAdmin']);
 		if (empty($ret))
 		{
 			error_log("user not exits");
@@ -21,11 +21,13 @@ function login($data)
 		}
 		error_log("user exist");
 		$_SESSION['email'] = $data['email'];
+		if ($ret['isAdmin'] && $ret['isAdmin'] == 1)
+			$_SESSION['admin'] = $ret['isAdmin'];
 		return (null);
 	}
 	else
 	{
-			return ($err);
+		return ($err);
 	}
 }
 
@@ -71,7 +73,7 @@ if ($_POST['from'])
 	if ($err)
 	{
 		error_log("fails to execute");
-		header('Location: ../'. $_POST['from'].'.php');
+		header('Location: ../'. $_POST['from'].'.php?err='.$err);
 		exit();
 	}
 	else
