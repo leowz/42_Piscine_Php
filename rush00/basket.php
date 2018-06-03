@@ -117,7 +117,7 @@ include('partial/header.php');
 			}
 			else
 			{
-				echo "<h4>There is nothing in thier cart</h4>";
+				echo "<h4>There is nothing in the cart</h4>";
 			}
     	?>
 </div>
