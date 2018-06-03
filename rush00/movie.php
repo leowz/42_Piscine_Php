@@ -60,7 +60,7 @@ $credits = (array) json_decode(file_get_contents('http://api.themoviedb.org/3/mo
                 <form action="basket.php" method="post">
                     <input type="number" name="quantity" value="1">
                     <input type="hidden" name="id" value="<?php echo $product['id']; ?>">
-                    <button type="submit" class="btn" style="background-color:#F2605C;border:1px;border-radius:0px;">Add to Cart</button>
+                    <button type="submit" class="btn" style="background-color:#F2605C;border:2px;border-radius:0px;">Add to Cart</button>
                 </form>
             </div>
         </div>
