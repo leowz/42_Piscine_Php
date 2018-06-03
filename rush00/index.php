@@ -19,7 +19,7 @@ $movie = products_get_random(15);
 	?>
 	<h3><a href="login.php">Want to buy movies? Sign in right now!</a></h3>
 	<?php }?>
-	<h3>Some movies you might like:<a style='font-size:21px' href="index.php">Refresh movies</a></h3>
+	<h3>Some movies you might like:<a style='font-size:12px' href="index.php">Refresh movies</a></h3>
 	<div class="movie_collection">
 		<?php
 		foreach ($movie as $v)
