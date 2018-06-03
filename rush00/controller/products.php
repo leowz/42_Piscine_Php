@@ -23,8 +23,7 @@ function addproduct(array $datas)
 	$req['price'] = $datas['price'];
 	$req['isAdult'] = (bool)$datas['isAdult'];
 	$req['stock'] = intval($datas['stock']);
-	$req['picture'] = null;
-	if (product_create($req['name'], $req['picture'], $req['isAdult'], $req['price'], $req['databaseid']))
+	if (product_create($req['name'], $req['picture'], $req['isAdult'], $req['price'], $req['databaseid'], $req['stock']))
 		return NULL;
 	return ('addproudct error');
 }
@@ -36,20 +35,16 @@ function updateproduct(array $datas)
 		$err[] = 'name';
 	if (!isset($datas['price']))
 		$err[] = 'price';
-	if (!isset($datas['isAdult']))
-		$err[] = 'isAdult';
 	if (!isset($datas['stock']))
 		$err[] = 'stock';
 	if ($err !== NULL)
 		return ($err);
-	$datas['price'] = intval($datas['price']);
-	$datas['isADult'] = (bool)$datas['isAdult'];
 	$datas['stock'] = intval($datas['stock']);
 	if (isset($datas['picture']))
 		$datas['picture'] = $datas['picture'];
-	if (product_update($datas['name'], $datas['picture'], $datas['isAdult'], $datas['price'], $datas['databaseid'], $datas['stock'], $datas['id']))
+	if (product_update($datas['name'], $datas['price'], $datas['stock'], $datas['id']))
 		return NULL;
-	return array('error');
+	return ('error');
 }
 
 function removeproduct(array $datas)
@@ -59,22 +54,22 @@ function removeproduct(array $datas)
 		if (product_delete($datas['name']) === TRUE)
 			return null;
 		else
-			return (array("notexist"));
+			return ("notexist");
 	}
 	else if ($datas['id'])
 	{
 		if (product_clear_byid($datas['id']) === TRUE)
 			return NULL;
 		else
-			return (array("notexist"));
+			return ("notexist");
 	}
 	else
-		return (array("datanotfound"));
+		return ("datanotfound");
 }
 
 if ($_POST['from']) {
 	if (($err = $_POST['from']($_POST))) {
-		$str_error = http_build_query($err);
+		$str_error = $err;
 		header('Location: ../' . $_POST['success'] . '.php?' . $str_error);
 	} else
 		header('Location: ../' . $_POST['success'] . '.php');

@@ -122,8 +122,9 @@ include('partial/header.php');
             <h5>Add Film:</h5>
             <form action="controller/products.php" method="POST">
                 <input type="text" name="name" placeholder="file name">
-                <input type="number" name="databaseid" placeholder="ID or api">
-                <input type="number" name="price" placeholder="Price">
+                <input type="number" name="databaseid" placeholder="database id">
+                <input type="text" name="picture" placeholder="imdb picture url">
+                <input type="number" name="price" placeholder="price">
                 <input type="number" name="stock" placeholder="stock quantity">
                 <input type="hidden" name="isAdult" value="0">
                 <input type="hidden" name="from" value="addproduct">
@@ -152,11 +153,9 @@ include('partial/header.php');
                         }
                     ?>
                 </select>
-                <input type="text" name="name" placeholder="file new name">
-                <input type="number" name="databaseid" placeholder="ID api">
+                <input type="text" name="name" placeholder="film new name">
                 <input type="number" name="price" placeholder="new price">
                 <input type="number" name="stock" placeholder="new stock">
-                <input type="hidden" name="isAdult" value="0">
                 <input type="hidden" name="from" value="updateproduct">
                 <input type="hidden" name="success" value="admin">
                 <button type="submit" class="btn btn-default">save</button>

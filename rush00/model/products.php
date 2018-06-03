@@ -91,26 +91,28 @@ function product_updatestock_byid(int $id, int $number)
 	return $req;
 }
 
-function product_create(string $name, string $picture = NULL, bool $isAdult = false, float $price, int $databaseid)
+function product_create(string $name, string $picture = NULL, bool $isAdult = false, float $price, int $databaseid, int $stack)
 {
 	$err = NULL;
 	$db = database_connect();
 	if (strlen($name) < 3 || strlen($name) > 100)
-		$err[] = 'name';
-	if ($picture != NULL && (strlen($picture) < 10 || strlen($picture) > 50))
-		$err[] = 'picture';
+		$err  .= 'name';
+	if ($databaseid <= 0)
+		$err  .= 'databaseid';
 	if ($price < 0)
-		$err[] = 'price';
+		$err .= 'price';
+	if ($stack < 0)
+		$err .= 'stack';
 	if ($err !== NULL)
-		return ($err);
+		return (false);
 	$name = mysqli_real_escape_string($db, $name);
 	$picture = mysqli_real_escape_string($db, $picture);
 	$isAdult = $isAdult ? 1 : 0;
-	$req = "INSERT INTO products (name, picture, isAdult, price, databaseid) VALUES('$name', '$picture', '$isAdult', '$price', '$databaseid')";
+	$req = "INSERT INTO products (name, picture, isAdult, price, databaseid, stock) VALUES('$name', '$picture', '$isAdult', '$price', '$databaseid', '$stack')";
 	$req = mysqli_query($db, $req);
 	if ($req)
 		return true;
-	return array('error');
+	return (false);
 }
 
 function product_delete(string $name)
@@ -147,7 +149,7 @@ function product_clear_byid(int $id)
 	return $req;
 }
 
-function product_update(string $name, string $picture = NULL, bool $isAdult, float $price, int $databaseid, $stock, $id)
+function product_update(string $name, float $price, $stock, $id)
 {
 	$err = NULL;
 	$db = database_connect();
@@ -164,7 +166,7 @@ function product_update(string $name, string $picture = NULL, bool $isAdult, flo
 	$name = mysqli_real_escape_string($db, $name);
 	$picture = mysqli_real_escape_string($db, $picture);
 	$stock = mysqli_real_escape_string($db, $stock);
-	$req = "UPDATE products SET name='$name', picture='$picture', isAdult='0', price='$price', databaseid='$databaseid', stock='$stock' WHERE id = '$id'";
+	$req = "UPDATE products SET name='$name', price='$price', stock='$stock' WHERE id = '$id'";
 	$req = mysqli_query($db, $req);
 	if ($req)
 		return true;
