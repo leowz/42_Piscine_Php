@@ -6,7 +6,7 @@ include_once('partial/header.php');
 
 $categories = category_get_all();
 $movie = product_get_filter($_GET['cat'], (float)$_GET['min'], (float)$_GET['max'], $_GET['name']);
-?error_log($movie);
+error_log($movie);
 ?>
 	<?php if (!empty($_GET))
 	{
