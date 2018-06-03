@@ -12,7 +12,7 @@ function product_get_filter($cat, $max, $min, $name)
 	$min = mysqli_real_escape_string($db, $min);
 	$max = mysqli_real_escape_string($db, $max);
 	if ($name)
-		$query .= " AND products.name LIKE '$name'";
+		$query .= " AND products.name LIKE '%$name%'";
 	if ($cat)
 		$query .= " AND products_has_categories.categories_id = '$cat'";
 	if ($max)
