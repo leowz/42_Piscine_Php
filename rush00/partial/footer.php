@@ -1,4 +1,4 @@
 <hr>
-<h5>This is the footer</h5>
+<p class="footer"><i>&copy; amovieweb 2018</i></p>
 </body>
 </html>
