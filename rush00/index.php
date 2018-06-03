@@ -20,7 +20,7 @@ $movie = products_get_random(15);
 	<h3><a href="login.php">Want to buy movies? Login right now!</a></h3>
 	<?php }?>
 	<h3><a href="index.php">refresh movies</a></h3>
-	<div class="flex_container">
+	<div class="movie_collection">
 		<?php
 		foreach ($movie as $v)
 		{
