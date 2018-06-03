@@ -43,7 +43,7 @@ $credits = (array) json_decode(file_get_contents('http://api.themoviedb.org/3/mo
                         }
                     ?>
                 </dd>
-                <dt>Production Conuntries</dt>
+                <dt><b>Production Conuntries</b></dt>
                 <dd><?php
                         if (isset($movie['production_countries'])) {
                             foreach ($movie['production_countries'] as $v) {
@@ -53,7 +53,7 @@ $credits = (array) json_decode(file_get_contents('http://api.themoviedb.org/3/mo
                         }
                     ?>
                 </dd>
-                <dt>Overview</dt>
+                <dt><b>Overview</b></dt>
                 <dd><?php echo isset($movie['overview']) ? $movie['overview'] : 'unknown' ; ?></dd>
             </dl>
             <div class="addBasket">
