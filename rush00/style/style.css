@@ -5,6 +5,11 @@ div.movie_collection
 	padding: 10px;
 }
 
+body
+{
+	text-decoration: none;
+}
+
 p.footer
 {
 	font-size: 9px;
