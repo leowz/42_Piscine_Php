@@ -130,7 +130,7 @@ include('partial/header.php');
                 <input type="hidden" name="success" value="admin">
                 <button type="submit" class="btn btn-default">add</button>
             </form>
-            <h5>Delete Film</h5>
+            <h5>Delete Film:</h5>
             <form action="controller/products.php" method="POST">
                 <select name="name">
                     <?php
@@ -143,7 +143,7 @@ include('partial/header.php');
                 <input type="hidden" name="success" value="admin">
                 <button type="submit" class="btn btn-default">delete</button>
             </form>
-            <h5>Update Film</h5>
+            <h5>Update Film:</h5>
             <form action="controller/products.php" method="POST">
                 <select name="id">
                     <?php
@@ -164,7 +164,7 @@ include('partial/header.php');
         </div>
 		<div class="col-l-6 padding">
             <h2>Orders</h2>
-            <h5>Create new order</h5>
+            <h5>Create new order:</h5>
             <form action="controller/orders.php" method="POST">
                 <select name="email">
                     <?php
@@ -187,7 +187,7 @@ include('partial/header.php');
                 <input type="hidden" name="error" value="admin">
                 <button type="submit" class="btn btn-default">create</button>
             </form>
-            <h5>Delete order</h5>
+            <h5>Delete order:</h5>
             <form action="controller/orders.php" method="POST">
                 <select name="order+product">
                     <?php
@@ -201,7 +201,7 @@ include('partial/header.php');
                 <input type="hidden" name="error" value="admin">
                 <button type="submit" class="btn btn-default">delete</button>
             </form>
-            <h5>Update order</h5>
+            <h5>Update order:</h5>
             <form action="controller/orders.php" method="POST">
                 <select name="order+product">
                     <?php
