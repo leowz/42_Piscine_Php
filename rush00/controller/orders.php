@@ -46,7 +46,7 @@ function basket()
 		{
 			$ret = add_order($k, $v, $_SESSION['email']);
 			if ($ret !== NULL)
-				$err[] = $ret;
+				$err .= $k.':'.$ret;
 		}
 		return $err;
 	}

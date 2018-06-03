@@ -39,6 +39,15 @@ $basket = unserialize($_SESSION['basketMovie']);
 include('partial/header.php');
 ?>
 
+	<div class="row error">
+    <?php
+        foreach ($_GET as $k => $v) {
+			if ($k !== 'remove')
+				echo '<div>'.$k.' : '.$v.'</div><br />';
+        }
+    ?>
+    </div>
+
 <div class="container">
     <h1 style="text-align: left">My Cart</h1>
     <?php

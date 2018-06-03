@@ -9,7 +9,7 @@ function product_get_filter($cat, $max, $min, $name)
 			WHERE 1 = 1";
 	$name = mysqli_real_escape_string($db, $name);
 	$cat = mysqli_real_escape_string($db, $cat);
-	$min = mysqli_real_escape_string($db, $db, $min);
+	$min = mysqli_real_escape_string($db, $min);
 	$max = mysqli_real_escape_string($db, $max);
 	if ($name)
 		$query .= " AND products.name LIKE '$name'";

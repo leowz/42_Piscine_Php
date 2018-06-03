@@ -28,7 +28,7 @@ include('partial/header.php');
 	<div class="row error">
     <?php
         foreach ($_GET as $k => $v) {
-            echo '<div>'.$k.' : '.$v.'</div>';
+            echo '<div>'.$k.' : '.$v.'</div><br />';
         }
     ?>
     </div>
