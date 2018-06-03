@@ -25,11 +25,11 @@ $movie = products_get_random(15);
 		foreach ($movie as $v)
 		{
 		?>
-		<div class="flex_item">
+		<div class="movie_box">
 			<a href="movie.php?id=<?php echo $v['id']; ?>">
 			  <img src="http://image.tmdb.org/t/p/w185/<?php echo $v['picture']; ?>">
-			  <div class="price"><?php echo number_format($v['price'], 2); ?> ‎€</div>
 			  <div class="title"><?php echo $v['name']; ?></div>
+			  <div class="price"><?php echo number_format($v['price'], 2); ?> ‎€</div>
 			  </a>
 		</div>
 	<?php
