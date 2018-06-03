@@ -22,7 +22,7 @@ $credits = (array) json_decode(file_get_contents('http://api.themoviedb.org/3/mo
             <img src="http://image.tmdb.org/t/p/w185/<?php echo $product['picture']; ?>" alt="">
         </div>
         <div class="info">
-            <dl>
+            <dl style="margin-top:0px;">
                 <dt class="title">Release Date</dt>
                 <dd><?php echo isset($movie['release_date']) ? $movie['release_date'] : 'unknown' ; ?></dd>
                 <dt class="title">Original language</dt>
