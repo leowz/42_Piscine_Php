@@ -5,6 +5,8 @@
 	require_once('model/mysqli.php');
 	require_once('model/people.php');
 
+$movie_quantity = 100;
+
 // delete rush if exist
 $db = database_connect2();
 $sql = "DROP DATABASE `rush`;";
@@ -138,7 +140,7 @@ echo "all connect, megrating data base\n";
 
 //config
 $start = 500;
-$max = $start + 50;
+$max = $start + $movie_quantity;
 
 // start megrating
 for ($i = $start; $i < $max; $i++)

@@ -15,6 +15,22 @@ function people_get($email, $passwd)
 	return mysqli_fetch_assoc($ret);
 }
 
+function people_get_name($email)
+{
+	$db = database_connect();
+	$mail = mysqli_real_escape_string($db, $mail);
+	$query = "SELECT * FROM peoples
+			WHERE email = '$email'";
+	$ret = mysqli_query($db, $query);
+	if (!$ret)
+		return ('people_get fails ');
+	$arr = mysqli_fetch_assoc($ret); 
+	$name = $arr['firstname'] ." " .$arr['lastname'];
+	if ($name)
+		return $name;
+	return null; 
+}
+
 function people_create(string $email, string $passwd, string $fname = null,
 		string $lname = null, $address = null, int $isAdmin = 0)
 {
