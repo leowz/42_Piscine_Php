@@ -17,9 +17,9 @@ $movie = products_get_random(15);
 	else
 	{
 	?>
-	<h3><a href="login.php">Want to buy movies? Login right now!</a></h3>
+	<h3><a href="login.php">Want to buy movies? Sign in right now!</a></h3>
 	<?php }?>
-	<h3><a href="index.php">refresh movies</a></h3>
+	<h3><a href="index.php">Refresh movies</a></h3>
 	<div class="movie_collection">
 		<?php
 		foreach ($movie as $v)
