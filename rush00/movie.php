@@ -66,7 +66,6 @@ $credits = (array) json_decode(file_get_contents('http://api.themoviedb.org/3/mo
         </div>
     </div>
     <h3>Cast</h3>
-	<div>
         <?php
 			echo "\n";
             if (isset($credits['cast'])) {
@@ -81,12 +80,8 @@ $credits = (array) json_decode(file_get_contents('http://api.themoviedb.org/3/mo
 					{
 						?>
                         <div class="movie_box">
-						<img class="movie" src=<?php echo 'http://image.tmdb.org/t/p/w185/'.$v['profile_path'];?> alt="image">
-                           	<div class="title">
-							<p class="name"><?php echo $v['name'];?></p>
-                             <p>play as:</p>
-							 <p class="role"><?php echo $v['character'];?></p>
-                            </div>
+							<img class="movie" src=<?php echo 'http://image.tmdb.org/t/p/w185/'.$v['profile_path'];?> alt="image">
+							<div class="title"><?php echo $v['name'];?> as <?php echo $v['character'];?></div>
                         </div>
 				<?php
 					}
@@ -94,7 +89,6 @@ $credits = (array) json_decode(file_get_contents('http://api.themoviedb.org/3/mo
 				echo "</div>";
             }
         ?>
-    </div>
     <h3>Crew</h3>
     <div class="movie_collection">
 
