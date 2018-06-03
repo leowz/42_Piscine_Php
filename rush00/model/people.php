@@ -117,6 +117,8 @@ function people_delete($email)
 	$email = mysqli_real_escape_string($db, $email);
 	$req = "DELETE FROM peoples WHERE email = '$email'";
 	$req = mysqli_query($db, $req);
+	error_log($req);
+	error_log(mysqli_error($db));
 	return ($req);
 }
 

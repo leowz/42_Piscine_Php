@@ -115,12 +115,14 @@ function product_create(string $name, string $picture = NULL, bool $isAdult = fa
 	return (false);
 }
 
-function product_delete(string $name)
+function product_delete(string $id)
 {
 	$db = database_connect();
-	$name = mysqli_real_escape_string($db, $name);
-	$req = "DELETE FROM products WHERE name = '$name'";
+	$name = mysqli_real_escape_string($db, $id);
+	$req = "DELETE FROM products WHERE id = '$id'";
 	$req = mysqli_query($db, $req);
+	error_log($req);
+	error_log(mysqli_error($db));
 	if ($req)
 		return true;
 	return $req;

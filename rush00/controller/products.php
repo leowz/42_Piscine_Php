@@ -2,6 +2,7 @@
 session_start();
 require_once('../model/products.php');
 require_once('../model/prod.php');
+require_once('../model/orders.php');
 
 function addproduct(array $datas)
 {
@@ -49,17 +50,20 @@ function updateproduct(array $datas)
 
 function removeproduct(array $datas)
 {
-	if ($datas['name'])
+	if ($datas['id'])
 	{
-		if (product_delete($datas['name']) === TRUE)
+		// product->orders_has_products
+		// product->products_has_categories
+		if (($orders = one_order_exist_bypid($datas['id'])))
+		{
+			order_delete_bypid($datas['id']);
+		}
+		if (($cat = product_cat_exist($datas['id'])))
+		{
+			link_prodcat_delete_byprod($datas['id']);
+		}
+		if (product_delete($datas['id']) === TRUE)
 			return null;
-		else
-			return ("notexist");
-	}
-	else if ($datas['id'])
-	{
-		if (product_clear_byid($datas['id']) === TRUE)
-			return NULL;
 		else
 			return ("notexist");
 	}

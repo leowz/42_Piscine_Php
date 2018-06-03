@@ -21,6 +21,14 @@ function order_get_bypid(int $pid)
 	return NULL;
 }
 
+function orderId_delete(int $oid)
+{
+	$db = database_connect();
+	$req = "DELETE FROM orders WHERE id = '$oid'";
+	$req = mysqli_query($db, $req);
+	return $req;
+}
+
 function order_get_all()
 {
 	$db = database_connect();
@@ -50,6 +58,43 @@ function one_order_delete(int $orders_id, int $products_id)
 	$req = "DELETE FROM orders_has_products WHERE orders_id = '$orders_id' AND products_id = '$products_id'";
 	$req = mysqli_query($db, $req);
 	return $req;
+}
+
+function order_delete_byid(int $orders_id)
+{
+	$db = database_connect();
+	$req = "DELETE FROM orders_has_products WHERE orders_id = '$orders_id'";
+	$req = mysqli_query($db, $req);
+	return $req;
+}
+
+function one_order_exist(int $orders_id)
+{
+	$db = database_connect();
+	$query = "SELECT * FROM orders_has_products WHERE orders_id = '$orders_id'";
+	$ret = mysqli_query($db, $query);
+	if ($ret)
+		return mysqli_fetch_all($ret, MYSQLI_ASSOC);
+	return NULL;
+}
+
+function order_delete_bypid(int $pid)
+{
+	$db = database_connect();
+	$req = "DELETE FROM orders_has_products WHERE products_id = '$pid'";
+	$req = mysqli_query($db, $req);
+	return $req;
+}
+
+function one_order_exist_bypid(int $pid)
+{
+	$db = database_connect();
+	$query = "SELECT * FROM orders_has_products WHERE products_id = '$pid'";
+	$ret = mysqli_query($db, $query);
+	if ($ret)
+		return mysqli_fetch_all($ret, MYSQLI_ASSOC);
+	return NULL;
+
 }
 
 function one_order_update(int $orders_id, int $products_id, int $quantity)

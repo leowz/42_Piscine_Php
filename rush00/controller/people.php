@@ -1,6 +1,8 @@
 <?php
 session_start();
 include_once('../model/people.php');
+include_once('../model/orders.php');
+include_once('../model/prod.php');
 
 function login($data)
 {
@@ -67,7 +69,16 @@ function register($data)
 
 function delete_self()
 {
-	if ($_SESSION['email'] && people_exist($_SESSION['email'])) {	
+	if ($_SESSION['email'] && ($p = people_exist($_SESSION['email'])) && $p['id']) {	
+		//people -> order -> orders_has_products;
+		if (($oid = order_get_bypid($p['id'])))
+		{
+			if (($orders = one_order_exist($oid['id'])))	
+			{
+				order_delete_byid($oid['id']);
+			}
+			orderId_delete($oid['id']);
+		}
 		if (people_delete($_SESSION['email'])) {
 			session_start();
 			session_destroy();

@@ -133,10 +133,10 @@ include('partial/header.php');
             </form>
             <h5>Delete Film:</h5>
             <form action="controller/products.php" method="POST">
-                <select name="name">
+                <select name="id">
                     <?php
                         foreach($products as $v) {
-                            echo "<option value='".$v['name']."'>".$v['name']."</option>";
+                            echo "<option value='".$v['id']."'>".$v['name']."</option>";
                         }
                     ?>
                 </select>

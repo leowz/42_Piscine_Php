@@ -59,6 +59,17 @@ function product_get_bycat(string $name, double $min = NULL, double $max = NULL)
 	return null;
 }
 
+function product_cat_exist(int $pid)
+{
+	$db = database_connect();
+	$query = "SELECT * FROM products_has_categories WHERE products_id = '$pid'";
+	$req = mysqli_query($db, $query);
+	error_log(mysqli_error($db));
+	if (!$req)
+		return null;
+	return mysqli_fetch_assoc($req);
+}
+
 function link_prodcat_delete_bycat(int $category_id)
 {
 	$db = database_connect();
@@ -67,10 +78,10 @@ function link_prodcat_delete_bycat(int $category_id)
 	return ($req);
 }
 
-function link_prodcat_delete_byprod(int $category_id)
+function link_prodcat_delete_byprod(int $pid)
 {
 	$db = database_connect();
-	$req = "DELETE FROM products_has_categories WHERE categories_id = '$category_id'";
+	$req = "DELETE FROM products_has_categories WHERE products_id = '$pid'";
 	$req = mysqli_query($db, $req);
 	return ($req);
 }
