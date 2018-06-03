@@ -29,8 +29,6 @@ $credits = (array) json_decode(file_get_contents('http://api.themoviedb.org/3/mo
                 <dd><?php echo isset($movie['original_language']) ? $movie['original_language'] : 'unknown' ; ?></dd>
                 <dt>Title Original</dt>
                 <dd><?php echo isset($movie['original_title']) ? $movie['original_title'] : 'unknown' ; ?></dd>
-                <dt>Type</dt>
-                <dd>test, test, test, test</dd>
                 <dt>Budget</dt>
                 <dd><?php echo isset($movie['budget']) ? $movie['budget'].' $' : 'unknown' ; ?></dd>
                 <dt>Revenu</dt>
@@ -72,21 +70,28 @@ $credits = (array) json_decode(file_get_contents('http://api.themoviedb.org/3/mo
         <?php
 			echo "\n";
             if (isset($credits['cast'])) {
+				$count = 0;
+				echo "<div class='flex_container'>";
                 foreach ($credits['cast'] as $v) {
                     $v = (array)$v;
-                    echo '<div class="">';
-                    if (empty($v['profile_path']))
-                        echo '<div class="actor" style="background-image: url(img/avatar.png)">';
-                    else
-                        echo '<div class="actor" style="background-image: url(http://image.tmdb.org/t/p/w185/'.$v['profile_path'].')">';
-                            echo '<div class="title">';
-                                echo '<p class="name">'.$v['name'].'</p>';
-                                echo '<p>dans le rôle de</p>';
-                                echo '<p class="role">'.$v['character'].'</p>';
-                            echo '</div>';
-                        echo '</div>';
-                    echo '</div>';
+					$count++;
+					if ($count > 20)
+						break;
+                    if (!empty($v['profile_path']))
+					{
+						?>
+                        <div class="flex_item">
+						<img src=<?php echo 'http://image.tmdb.org/t/p/w185/'.$v['profile_path'];?> alt="image">
+                           	<div class="title">
+							<p class="name"><?php echo $v['name'];?></p>
+                             <p>play as:</p>
+							 <p class="role"><?php echo $v['character'];?></p>
+                            </div>
+                        </div>
+				<?php
+					}
                 }
+				echo "</div>";
             }
         ?>
     </div>
@@ -95,21 +100,28 @@ $credits = (array) json_decode(file_get_contents('http://api.themoviedb.org/3/mo
 
         <?php
             if (isset($credits['crew'])) {
+				$count = 0;
+				echo "<div class='flex_container'>";
                 foreach ($credits['crew'] as $v) {
                     $v = (array)$v;
-                    echo '<div class="col-l-2 col-m-3 col-s-4">';
-                    if (empty($v['profile_path']))
-                        echo '<div class="actor" style="background-image: url(img/avatar.png)">';
-                    else
-                        echo '<div class="actor" style="background-image: url(http://image.tmdb.org/t/p/w185/'.$v['profile_path'].')">';
-                    echo '<div class="title">';
-                    echo '<p class="name">'.$v['name'].'</p>';
-                    echo '<p>dans le rôle de</p>';
-                    echo '<p class="role">'.$v['job'].'</p>';
-                    echo '</div>';
-                    echo '</div>';
-                    echo '</div>';
+					$count++;
+					if ($count > 15)
+						break;
+                    if (!empty($v['profile_path']))
+					{
+					?>
+                    <div class="actor">
+                   		<div class="title">
+						<img src=<?php echo 'http://image.tmdb.org/t/p/w185/'.$v['profile_path'];?> alt="image">
+						<p class="name"><?php echo $v['name'];?></p>
+                    	<p>work as:</p>
+						<p class="role"><?php echo $v['job'];?></p>
+                    	</div>
+                    </div>
+				<?php
+					}
                 }
+				echo "</div>";
             }
         ?>
     </div>

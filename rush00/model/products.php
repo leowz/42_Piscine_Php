@@ -45,6 +45,23 @@ function products_get()
 	return mysqli_fetch_all($req, MYSQLI_ASSOC);
 }
 
+function products_get_random(int $number)
+{
+	$db = database_connect();
+	$req = "SELECT * FROM products ORDER BY name ASC";
+	$req = mysqli_query($db, $req);
+	if (!$req)
+		return null;
+	$ret = [];
+	$arr = mysqli_fetch_all($req, MYSQLI_ASSOC);
+	$keys = array_rand($arr, $number);
+	foreach ($keys as $k)
+	{
+		$ret[] = $arr[$k];
+	}
+	return $ret;
+}
+
 function product_get_byname(string $name)
 {
 	$db = database_connect();

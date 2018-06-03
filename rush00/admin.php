@@ -166,6 +166,14 @@ include('partial/header.php');
             <h2>Orders</h2>
             <h5>Create new order</h5>
             <form action="controller/orders.php" method="POST">
+                <select name="email">
+                    <?php
+                        foreach($peoples as $v) {
+                            echo "<option value='".$v['email']."'>".$v['email']." - ".$v['firstname']." ".$v['lastname']."</option>";
+                        }
+                    ?>
+						<option value=<?php echo $_SESSION['email']?>><?php echo $_SESSION['email']?> - Me</option>
+                </select>
                 <select name="product_id">
                     <?php
                         foreach($products as $v) {

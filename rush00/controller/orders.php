@@ -60,13 +60,13 @@ function addAnOrder($data)
 		return 'no proudct_id';
 	if (empty($data['quantity']))
 		return 'no quantity';
-	if (empty($_SESSION['email']))
+	if (empty($data['email']))
 		return 'no email';
 	$product = product_get_byid($data['product_id']);
 	error_log($data['product_id']);
 	error_log($product);
 	if ($product)
-		return add_order($data['product_id'], $data['quantity'], $_SESSION['email']);
+		return add_order($data['product_id'], $data['quantity'], $data['email']);
 	else
 		return "product not existe";
 }
