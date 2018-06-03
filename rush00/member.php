@@ -29,7 +29,7 @@ session_start();
         <div class="col-l-6">
             <h2>My Settings</h2>
             <form action="controller/people.php" method="POST">
-                <input type="password" name="password" placeholder="change passwd" value=""
+                <input type="password" name="password" placeholder="change password" value=""
                        class="<?php echo isset($_GET['password']) ? 'error' : ''; ?>">
                 <input type="text" name="firstname" placeholder="First Name" value="<?php echo $people['firstname']; ?>"
                        class="<?php echo isset($_GET['firstname']) ? 'error' : ''; ?>">
@@ -79,15 +79,26 @@ session_start();
 				}
             ?>
         </div>
+		<?php
+	if (!$_SESSION['admin'] || $_SESSION['admin'] != 1)
+	{
+		?>
 		<div>
 			<h2>Delete Account</h2>
 				<p>
 				warning: the deletion operation is inreversable and might have serious consequences!
 				Think twice before doing this!
 				</p>
-				<button>Delete this account forever!
-				</button>
+            <form action="controller/people.php" method="POST">
+                <button type="submit" class="btn btn-default">Delete this account forever!</button>
+                <input type="hidden" name="success" value="index">
+                <input type="hidden" name="from" value="delete_self">
+                <input type="hidden" name="error" value="member">
+            </form>
 		</div>
+		<?php 
+		}
+		?>
     </div>
 </div>
 <?php include('partial/footer.php');?>

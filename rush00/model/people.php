@@ -43,12 +43,45 @@ function people_exist($email)
 {
 	$db = database_connect();
 
-	$pseudo = mysqli_real_escape_string($db, $email);
-	$query = "SELECT * FROM peoples WHERE pseudo = '$pseudo'";
+	$email = mysqli_real_escape_string($db, $email);
+	$query = "SELECT * FROM peoples WHERE email = '$email'";
 	$req = mysqli_query($db, $query);
 	if (!$req)
 		return null;
 	return mysqli_fetch_assoc($req);
+}
+
+function people_update($email, string $firstname, string $lastname, string $password, string $address)
+{
+	$err = null;
+	$db = database_connect();
+
+	if (strlen($firstname) < 3 || strlen($firstname) > 45)
+		$err[] = 'firstname';
+	if (strlen($lastname) < 3 || strlen($lastname) > 45)
+		$err[] = 'lastname';
+	if (strlen($address) < 3 || strlen($address) > 100)
+		$err[] = 'address';
+	if ($password && strlen($password) > 0)
+		$password = hash_passwd($password);
+
+	if (!empty($err))
+		return ($err);
+
+	$email = mysqli_real_escape_string($db, $email);
+	$firstname = mysqli_real_escape_string($db, $firstname);
+	$lastname = mysqli_real_escape_string($db, $lastname);
+	$password = mysqli_real_escape_string($db, $password);
+	$address = mysqli_real_escape_string($db, $address);
+	$req = "UPDATE peoples SET firstname='$firstname', lastname='$lastname'";
+	if ($password)
+		$req .= ", password='$password'";
+	$req .= ", address='$address' WHERE email = '$email'";
+	error_log($req."\n");
+	$req = mysqli_query($db, $req);
+	if ($req)
+		return null;
+	return ('error');
 }
 
 function people_get_all()
@@ -59,6 +92,16 @@ function people_get_all()
 	if (!$req)
 		return null;
 	return mysqli_fetch_all($req, MYSQLI_ASSOC);
+}
+
+function people_delete($email)
+{
+	$db = database_connect();
+			
+	$email = mysqli_real_escape_string($db, $email);
+	$req = "DELETE FROM peoples WHERE email = '$email'";
+	$req = mysqli_query($db, $req);
+	return ($req);
 }
 
 function admin_exist($email)

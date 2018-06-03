@@ -48,8 +48,8 @@ include('partial/header.php');
                 <thead>
                 <tr>
                     <td>ID</td>
+                    <td>Poster</td>
                     <td>Name</td>
-                    <td></td>
                     <td class="right">Price</td>
                     <td class="right">Quntity</td>
                     <td class="right">To Pay</td>

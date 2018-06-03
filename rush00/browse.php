@@ -13,8 +13,8 @@ $movie = product_get_filter($_GET['cat'], (float)$_GET['min'], (float)$_GET['max
 		<h2>Filter</h2>
 		<form action="">
 		<input type="text" name="name" value="<?php echo isset($_GET['name']) ? $_GET['name']: "" ?>" placeholder="name">
-		<input type="number" name="min" value="<?php echo isset($_GET['min']) ? $_GET['min'] : "";?>" placeholder="min">
-		<input type="number" name="max" value="<?php echo isset($_GET['max']) ? $_GET['max'] : "";?>" placeholder="max">
+		<input type="number" name="min" value="<?php echo isset($_GET['min']) ? $_GET['min'] : "";?>" placeholder="min price">
+		<input type="number" name="max" value="<?php echo isset($_GET['max']) ? $_GET['max'] : "";?>" placeholder="max price">
 		<input type="hidden" name="cat" value="<?php echo $_GET['cat']?>">
 		<button type="submit">Search</button>
 		</form>

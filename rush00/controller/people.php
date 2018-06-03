@@ -65,6 +65,36 @@ function register($data)
 	}
 }
 
+function delete_self()
+{
+	if ($_SESSION['email'] && people_exist($_SESSION['email'])) {	
+		if (people_delete($_SESSION['email'])) {
+			session_start();
+			session_destroy();
+			return null;	
+		}
+		else
+			return "delete fails";
+	}
+	else
+		return "people not exist";
+}
+
+function update(array $datas)
+{
+	if ($_SESSION['admin']) {
+		if (people_exist($datas['email']))
+			return (people_update($datas['email'], $datas['firstname'], $datas['lastname'], $datas['password'], $datas['address']));
+		else
+			return ('Not exist');
+	} else {
+		if (people_exist($_SESSION['email']))
+			return (people_update($_SESSION['email'], $datas['firstname'], $datas['lastname'], $datas['password'], $datas['address']));
+		else
+			return ("Not exist");
+	}
+}
+
 if ($_POST['from'])
 {
 	$err = $_POST['from']($_POST);
@@ -72,11 +102,19 @@ if ($_POST['from'])
 	if ($err)
 	{
 		error_log("fails to execute");
+		if ($_POST['error']) {
+			header('Location: ../'. $_POST['error'].'.php?err='.$err);
+			exit();
+		}
 		header('Location: ../'. $_POST['from'].'.php?err='.$err);
 		exit();
 	}
 	else
 	{
+		if ($_POST['success']) {
+			header('Location: ../'. $_POST['success']);
+			exit();
+		}
 		error_log("sucess to execute redirect home");
 		header('Location: ../index.php');
 		exit();

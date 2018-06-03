@@ -21,6 +21,16 @@ function order_get_bypid(int $pid)
 	return NULL;
 }
 
+function order_get_all()
+{
+	$db = database_connect();
+	$query = "SELECT * FROM orders_has_products";
+	$ret = mysqli_query($db, $query);
+	if ($ret)
+		return mysqli_fetch_all($ret, MYSQLI_ASSOC);
+	return NULL;
+}
+
 function order_get_bypeopleid(int $people_id)
 {
 	$db = database_connect();
@@ -32,5 +42,22 @@ function order_get_bypeopleid(int $people_id)
 	if ($ret)
 		return mysqli_fetch_all($ret, MYSQLI_ASSOC);
 	return null;
+}
+
+function one_order_delete(int $orders_id, int $products_id)
+{
+	$db = database_connect();
+	$req = "DELETE FROM orders_has_products WHERE orders_id = '$orders_id' AND products_id = '$products_id'";
+	$req = mysqli_query($db, $req);
+	return $req;
+}
+
+function one_order_update(int $orders_id, int $products_id, int $quantity)
+{
+	$db = database_connect();
+	$req = "DELETE FROM orders_has_products WHERE orders_id = '$orders_id' AND products_id = '$products_id'";
+	$req = "UPDATE orders_has_products SET quantity='$quantity' WHERE orders_id = '$orders_id' AND products_id = '$products_id'";
+	$req = mysqli_query($db, $req);
+	return $req;
 }
 ?>
