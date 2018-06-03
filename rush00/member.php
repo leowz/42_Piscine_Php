@@ -90,7 +90,7 @@ session_start();
 				Think twice before doing this!
 				</p>
             <form action="controller/people.php" method="POST">
-                <button type="submit" class="btn btn-default">Delete this account forever!</button>
+                <button type="submit" style="background-color:#F26B5C;">Delete this account forever!</button>
                 <input type="hidden" name="success" value="index">
                 <input type="hidden" name="from" value="delete_self">
                 <input type="hidden" name="error" value="member">
