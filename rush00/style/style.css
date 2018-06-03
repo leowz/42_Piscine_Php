@@ -10,6 +10,17 @@ body
 	text-decoration: none;
 }
 
+dt.title
+{
+	font: bold 21px;
+}
+
+div.info
+{
+	margin-left: 7px;
+	margin-top: 0px;
+}
+
 div.movie_info
 {
 	display: flex;

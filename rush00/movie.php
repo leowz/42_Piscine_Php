@@ -21,19 +21,19 @@ $credits = (array) json_decode(file_get_contents('http://api.themoviedb.org/3/mo
         <div class="movie_img">
             <img src="http://image.tmdb.org/t/p/w185/<?php echo $product['picture']; ?>" alt="">
         </div>
-        <div class="col-l-8">
+        <div class="info">
             <dl>
-                <dt>Realise Date</dt>
+                <dt class="title">Release Date</dt>
                 <dd><?php echo isset($movie['release_date']) ? $movie['release_date'] : 'unknown' ; ?></dd>
-                <dt>Original Language</dt>
+                <dt class="title">Original language</dt>
                 <dd><?php echo isset($movie['original_language']) ? $movie['original_language'] : 'unknown' ; ?></dd>
-                <dt>Title Original</dt>
+                <dt class="title">Title Original</dt>
                 <dd><?php echo isset($movie['original_title']) ? $movie['original_title'] : 'unknown' ; ?></dd>
-                <dt>Budget</dt>
+                <dt class="title">Budget</dt>
                 <dd><?php echo isset($movie['budget']) ? $movie['budget'].' $' : 'unknown' ; ?></dd>
-                <dt>Revenu</dt>
+                <dt class="title">Revenue</dt>
                 <dd><?php echo isset($movie['revenue']) ? $movie['revenue'].' $' : 'unknown' ; ?></dd>
-                <dt>Production Companies</dt>
+                <dt class="title">Production companies</dt>
                 <dd><?php
                         if (isset($movie['production_companies'])) {
                             foreach ($movie['production_companies'] as $v) {
