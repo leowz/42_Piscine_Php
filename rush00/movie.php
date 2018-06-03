@@ -23,17 +23,17 @@ $credits = (array) json_decode(file_get_contents('http://api.themoviedb.org/3/mo
         </div>
         <div class="info">
             <dl style="margin-top:0px;">
-                <dt class="title">Release Date</dt>
+                <dt><b>Release Date</dt>
                 <dd><?php echo isset($movie['release_date']) ? $movie['release_date'] : 'unknown' ; ?></dd>
-                <dt class="title">Original language</dt>
+                <dt><b>Original language</dt>
                 <dd><?php echo isset($movie['original_language']) ? $movie['original_language'] : 'unknown' ; ?></dd>
-                <dt class="title">Title Original</dt>
+                <dt><b>Title Original</dt>
                 <dd><?php echo isset($movie['original_title']) ? $movie['original_title'] : 'unknown' ; ?></dd>
-                <dt class="title">Budget</dt>
+                <dt><b>Budget</dt>
                 <dd><?php echo isset($movie['budget']) ? $movie['budget'].' $' : 'unknown' ; ?></dd>
-                <dt class="title">Revenue</dt>
+                <dt><b>Revenue</dt>
                 <dd><?php echo isset($movie['revenue']) ? $movie['revenue'].' $' : 'unknown' ; ?></dd>
-                <dt class="title">Production companies</dt>
+                <dt><b>Production companies</dt>
                 <dd><?php
                         if (isset($movie['production_companies'])) {
                             foreach ($movie['production_companies'] as $v) {
