@@ -8,13 +8,6 @@ $categories = category_get_all();
 $movie = product_get_filter($_GET['cat'], (float)$_GET['max'], (float)$_GET['min'], $_GET['name']);
 error_log($movie);
 ?>
-	<?php if (!empty($_GET))
-	{
-	?>
-	<h4><a href="browse.php">reset all</a></h4>
-	<?php
-	}
-	?>
 <div>
 	<div class="filter_section">
 		<h2>Filter</h2>
