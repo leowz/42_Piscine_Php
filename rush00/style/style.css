@@ -10,6 +10,12 @@ body
 	text-decoration: none;
 }
 
+div.movie_info
+{
+	display: flex;
+	flex-wrap: wrap;
+}
+
 p.footer
 {
 	font-size: 9px;

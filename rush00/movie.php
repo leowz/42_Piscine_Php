@@ -17,7 +17,7 @@ $credits = (array) json_decode(file_get_contents('http://api.themoviedb.org/3/mo
 
 <div class="movie_container">
 <h1><?php echo $product['name']; ?></h1>
-	<div class="movie">
+	<div class="movie_info">
         <div class="movie_img">
             <img src="http://image.tmdb.org/t/p/w185/<?php echo $product['picture']; ?>" alt="">
         </div>
