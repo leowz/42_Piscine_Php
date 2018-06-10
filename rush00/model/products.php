@@ -91,7 +91,7 @@ function product_updatestock_byid(int $id, int $number)
 	return $req;
 }
 
-function product_create(string $name, string $picture = NULL, bool $isAdult = false, float $price, int $databaseid, int $stack)
+function product_create(string $name, string $picture = NULL, bool $isAdult = false, float $price, int $databaseid, int $stack = 20)
 {
 	$err = NULL;
 	$db = database_connect();
