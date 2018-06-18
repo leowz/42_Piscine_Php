@@ -12,10 +12,12 @@ This project includes days of:
 In the middle and the end, we also need to do 2 rushes which is basically 2 server side
 web app. The first is about an online shop, the other is about an online game.
 
-### Contents
+## Contents
 * [What's in it?](#whats-in-it)
+* [Rush00](#rush00)
+* [Grades](#grades)
 
-### What's in it?
+## What's in it?
 
 * **day00:** Basics of html and css. Exercises on making static html with customized css.
 
@@ -37,4 +39,25 @@ Because the minimum knowledges on openGL is essential in order to code those cla
 * **day08:** Building a game using OOP in php.
 
 * **day09:** Basics of JavaScript. Some basic exercises of JS, with jQuary and Ajax. 
+
+* **rush00:** A small but complete on line store.
+
+## Rush00
+
+A small but complete on line store web site implemented in php.
+
+function modules:
+
+- Data management: mysql as data management modules
+- User management: user and admin user management system
+- Admin section: admin section for admin user to manage user and data
+- Categories and products: product management with categories for different data
+
+
+
+
+## Grades
+
+piscine_php: 81/100
+
 

@@ -133,7 +133,7 @@ if (mysqli_error($db))
 // connect to db and auth
 $db = database_connect();
 $req = mysqli_query($db, $req);
-$api_key = '?api_key=db663b344723dd2d6781aed1e2f7764d';
+$api_key = '?api_key=9516bcc3f6518e2454476a43925c4625';
 $request_base = 'http://api.themoviedb.org/3/movie/';
 $time = microtime(TRUE);
 echo "all connect, megrating data base\n";
