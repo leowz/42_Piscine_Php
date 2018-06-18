@@ -53,6 +53,23 @@ function modules:
 - Admin section: admin section for admin user to manage user and data
 - Categories and products: product management with categories for different data
 
+**Sign in**
+![main](img/signIn.png)
+
+**main page**
+![main](img/main.png)
+
+**Categories page**
+![main](img/browse.png)
+
+**Movie page**
+![main](img/movie.png)
+
+**Cart page**
+![main](img/cart.png)
+
+**Admin page**
+![main](img/admin.png)
 
 
 
